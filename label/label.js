@@ -4,8 +4,8 @@ var router = express.Router();
 var Mock = require('mockjs')
 var data = [
   {
-    workloads: false,
-    rulesets: false,
+    workloads: 'false',
+    rulesets: 'false',
     policy:29,
     name:'小明',
     type:'3',
@@ -29,8 +29,15 @@ router.use("/delete", function (req, res) {
     
 });
 router.use("/add", function (req, res) {
-    req.body.id = data.length+1
-    data.push(req.body)
-    return res.json(data);
+    let data = {
+        id:data.length+1,
+        workloads:false,
+        rulesets:'false',
+        policy:'1',
+        type:req.body.type,
+        name:req.body.name
+    }
+      data.push(data)
+    return res.json('添加成功');
 });
 module.exports = router;
