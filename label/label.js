@@ -29,15 +29,28 @@ router.use("/delete", function (req, res) {
     
 });
 router.use("/add", function (req, res) {
-    let data = {
+    let template = {
+        'workloads|1': true, 
+        'rulesets|1': true, 
+    }
+    let obj = {
         id:data.length+1,
-        workloads:false,
-        rulesets:'false',
+        workloads: template.workloads,
+        rulesets: template.rulesets,
         policy:'1',
         type:req.body.type,
         name:req.body.name
     }
-      data.push(data)
+    data.push(obj)
     return res.json('添加成功');
+});
+router.use("/search", function (req, res) {
+    let arr = []
+    data.filter(item =>{
+        if (item.name.indexOf(req.body.name) > -1) {
+          arr.push(item);
+        }
+    })
+    return res.json(arr);
 });
 module.exports = router;
