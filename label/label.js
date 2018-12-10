@@ -8,7 +8,7 @@ var data = [
     rulesets: 'false',
     policy:29,
     name:'小明',
-    type:'3',
+    type:2,
     id:1
   }
 ];
@@ -33,10 +33,11 @@ router.use("/add", function (req, res) {
         'workloads|1': true, 
         'rulesets|1': true, 
     }
+    let mockData = Mock.mock(template);
     let obj = {
         id:data.length+1,
-        workloads: template.workloads,
-        rulesets: template.rulesets,
+        workloads: mockData.workloads,
+        rulesets: mockData.rulesets,
         policy:'1',
         type:req.body.type,
         name:req.body.name
