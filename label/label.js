@@ -47,7 +47,7 @@ router.use("/add", function (req, res) {
 router.use("/search", function (req, res) {
     let arr = []
     data.filter(item =>{
-        if (item.name.indexOf(req.body.name) > -1) {
+        if (item.name.indexOf(req.body.name) > -1 && item.name.indexOf(req.body.name) > -1) {
           arr.push(item);
         }
     })
