@@ -18,9 +18,7 @@ router.use("/dataList", function(req, res) {
 router.use("/delete", function(req, res) {
   if (req.body.id) {
       req.body.id.filter(item=>{
-     
           for (let i = 0; i < data.length; i++) {
-           
               if (item == data[i].id) {
                 data.splice(i, 1);
                 break;
@@ -28,7 +26,7 @@ router.use("/delete", function(req, res) {
           }
       })
   }
-  return res.json(data);
+  return res.json('删除成功');
   //调用mock方法模拟数据
 });
 router.use("/add", function(req, res) {
